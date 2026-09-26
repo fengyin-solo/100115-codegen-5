@@ -19,6 +19,7 @@ const Pilot = () => import('@/views/pilot/index.vue')
 const Safety = () => import('@/views/safety/index.vue')
 const Customer = () => import('@/views/customer/index.vue')
 const Settle = () => import('@/views/settle/index.vue')
+const Shorepower = () => import('@/views/shorepower/index.vue')
 
 const router = createRouter({
   history: createWebHistory(),
@@ -42,6 +43,7 @@ const router = createRouter({
     { path: '/safety', name: 'safety', component: Safety },
     { path: '/customer', name: 'customer', component: Customer },
     { path: '/settle', name: 'settle', component: Settle },
+    { path: '/shorepower', name: 'shorepower', component: Shorepower },
   ],
 })
 

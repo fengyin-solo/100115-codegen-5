@@ -24,5 +24,6 @@ from app.routers import pilot as router_pilot
 from app.routers import safety as router_safety
 from app.routers import customer as router_customer
 from app.routers import settle as router_settle
+from app.routers import shorepower as router_shorepower
 
-ROUTERS = [router_berth, router_vessel, router_voyage, router_crane, router_loading, router_yard, router_container, router_yardstore, router_gate, router_truck, router_tally, router_damage, router_manifest, router_storage, router_pilot, router_safety, router_customer, router_settle]
+ROUTERS = [router_berth, router_vessel, router_voyage, router_crane, router_loading, router_yard, router_container, router_yardstore, router_gate, router_truck, router_tally, router_damage, router_manifest, router_storage, router_pilot, router_safety, router_customer, router_settle, router_shorepower]

@@ -14,6 +14,11 @@ class Store:
         self._tables: dict[str, list[dict[str, Any]]] = {
             name: [dict(row) for row in rows] for name, rows in SEED_ROWS.items()
         }
+        # 懒加载钩子：部分模块（如岸电计量）汇总前要先按业务口径归一化种子数据
+        self._bootstraps: dict[str, Any] = {}
+
+    def register_bootstrap(self, module: str, service: Any) -> None:
+        self._bootstraps[module] = service
 
     def module_names(self) -> list[str]:
         return sorted(self._tables)
@@ -28,6 +33,9 @@ class Store:
         return None
 
     def overview(self) -> dict[str, object]:
+        # 部分模块（如岸电计量）需要先按业务口径归一化种子数据，再统计待处理/异常量
+        for service in self._bootstraps.values():
+            service.bootstrap()
         modules: list[dict[str, object]] = []
         for name in self.module_names():
             rows = self.rows(name)

@@ -244,3 +244,15 @@ class SettleEntry(BaseModel):
     field_5: str | None = None  # 已收金额
     field_6: str | None = None  # 开票状态
     field_7: str | None = None  # 结算状态
+
+class ShorePowerEntry(BaseModel):
+    """岸电接电记录明细结构。"""
+
+    field_0: str | None = None  # 记录编号
+    field_1: str | None = None  # 船舶名称
+    field_2: str | None = None  # 所属船公司
+    field_3: str | None = None  # 接电泊位
+    field_4: str | None = None  # 接电时刻
+    field_5: str | None = None  # 断电时刻
+    field_6: str | None = None  # 接电时长
+    field_7: str | None = None  # 用电量
